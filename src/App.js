@@ -6,14 +6,15 @@ function App() {
 	
 	function doSmth(index) {
 		let copy = Object.assign([], notes);
-		copy[index] = notes[index]**2;
+		if(!index) copy.splice(0, 1) 
+		else copy.splice(index, index)
 		setNotes(copy);
 	}
 
 	const result = notes.map((note, index) => {
-		return <li key={index} onClick={() => doSmth(index)}>
+		return <><li key={index}>
 			{note}
-		</li>;
+		</li><button onClick={() => doSmth(index)}>{index}</button></>;
 	});
 	
 	return <div>
