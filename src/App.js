@@ -1,11 +1,13 @@
 import './App.css'
 
 function App() {
-	const age = 19;
-
-	return <div>
-		{age>18 ? <p>true</p> : <p>false</p>}
-	</div>;
+	const isAdmin = true;
+	if(isAdmin){
+		return <div>
+			<p></p>
+			<p></p>
+		</div>
+	}
 	
 }
 export default App;
