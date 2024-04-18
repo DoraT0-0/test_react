@@ -1,7 +1,10 @@
 import './App.css'
 
 function App() {
-	return <input />;
+	return <>
+	<input />
+	<input />
+	<input />
+	</>
 }
-
 export default App;
