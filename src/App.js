@@ -1,7 +1,13 @@
 import './App.css'
 
 function App() {
-	return <input />;
+	const isAdult = true;
+	if(isAdult){
+		return <p> True </p>
+	}
+	else{
+		return <p> False</p>
+	}
+	
 }
-
 export default App;
