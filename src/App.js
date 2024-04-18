@@ -1,7 +1,11 @@
 import './App.css'
 
 function App() {
-	return <input />;
+	const isAuth = true;
+	
+	return <div>
+		{isAuth && <p>вы авторизованы</p>}
+	</div>;
+	
 }
-
 export default App;
