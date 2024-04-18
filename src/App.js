@@ -1,7 +1,10 @@
 import './App.css'
 
 function App() {
-	return <input />;
+	const attr = 'block';
+	
+	return <div id = {attr}>
+		text
+	</div>;
 }
-
 export default App;
