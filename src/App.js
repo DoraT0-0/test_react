@@ -1,30 +1,23 @@
 import './App.css'
 import React, { useState } from 'react';
 
-const initDate = {
-	year:  2025,
-	month: 12,
-	day:   31,
-}
-
 function App() {
-	function getDayOfWeek(date) {
-		const dayOfWeek = new Date(date).getDay();
-		return isNaN(dayOfWeek) ? null :
-		  ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+	const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+	
+	const result = notes.map((note, index) => {
+		return <li key={index}>{note}</li>;
+	});
+	
+	function changeHandler(){
+		let copy = [...notes, notes[notes.length - 1]+1];
+		setNotes(copy);
 	}
-	const [obj, setObj] = useState(initDate);
-	let data_ = obj.year+'-'+obj.month+'-'+obj.day
-	function handleChange(prop, event) {
-		setObj({...obj, ...{[prop]: event.target.value}});
-	}
+
 	return <div>
-		<input value={obj.day} onChange={event => handleChange('day', event)} /> 
-		<input value={obj.month} onChange={event => handleChange('month', event)} /> 
-		<input value={obj.year} onChange={event => handleChange('year', event)} /> 
-		
-		<br />
-		<p>{getDayOfWeek(data_)}</p>
+		<ul>
+			<button onClick={() => changeHandler(0)}>+</button>
+			{result}
+		</ul>
 	</div>;
 }
 export default App 
