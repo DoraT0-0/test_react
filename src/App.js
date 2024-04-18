@@ -3,23 +3,21 @@ import React, { useState } from 'react';
 
 function App() {
 	const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
-	const [value, setValue] = useState('')
-	const [i, seti] = useState(0)
-	function doSmth(value) {
+	function doSmth() {
 		let copy = [...notes]
-		copy[i] = value
+		copy.reverse()
 		setNotes(copy)
 	}
 
 	const result = notes.map((note, index) => {
-		return <li key={index} onClick={() => {seti(index)}}>
+		return <li key={index}>
 			{note}
 		</li>;
 	});
 	
 	return <div>
 		<ul>
-			<input value={value} onBlur={() => doSmth(value)} onChange={event => setValue(event.target.value)}/>
+			<button onClick={() => doSmth()}>reverse</button>
 			{result}
 		</ul>
 	</div>;
