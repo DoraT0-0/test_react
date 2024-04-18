@@ -1,7 +1,13 @@
 import './App.css'
 
 function App() {
-	return <input />;
+	const isAdmin = true;
+	if(isAdmin){
+		return <div>
+			<p></p>
+			<p></p>
+		</div>
+	}
+	
 }
-
 export default App;
