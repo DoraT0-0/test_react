@@ -1,5 +1,6 @@
 import './App.css'
 import React, { useState } from 'react';
+import {nanoid} from 'nanoid'
 
 const initNotes = [
 	{
@@ -24,13 +25,16 @@ const initNotes = [
 
 function App() {
 	const [notes, setNotes] = useState(initNotes);
-	
+	const [Prop1, setProp1] = useState();
+	const [Prop2, setProp2] = useState();
+	const [Prop3, setProp3] = useState();
+
 	function doSmth() {
 		let copy = [...notes, {
-			id: 'JAmjRlfQT8rLTm5tG2m12',
-			prop1: 'value31',
-			prop2: 'value32',
-			prop3: 'value33',}];
+			id: nanoid(),
+			prop1: Prop1,
+			prop2: Prop2,
+			prop3: Prop3,}];
 		setNotes(copy);
 	}
 
@@ -46,6 +50,9 @@ function App() {
 		<ul>
 			{result}
 		</ul>
+		<input onChange={event => setProp1(event.target.value)}/>
+		<input onChange={event => setProp2(event.target.value)}/>
+		<input onChange={event => setProp3(event.target.value)}/>
 		<button onClick={doSmth}>+</button>
 	</div>;
 }
